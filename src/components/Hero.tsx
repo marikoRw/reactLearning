@@ -1,6 +1,91 @@
+import { ChevronDown } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { codeExamples } from "../data/CodeExample";
+import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/hljs";
+
 function Hero() {
+
+    const [mousePosition, setMOusePosition] = useState({x: 0, y: 0});
+    const [activeTab, setActiveTab] = useState("App.tsx");
+
+    useEffect(() => {
+        function handleMouseMove(e: MouseEvent) {
+            setMOusePosition({x: e.clientX, y: e.clientY})
+        }
+
+        window.addEventListener("mousemove", handleMouseMove);
+
+        return() => window.removeEventListener("mousemove", handleMouseMove);
+    }, [])
+
   return (
-    <div>Hero</div>
+    
+    <section className="relative min-h-screen flex items-center justify-center pt-16 sm:pt-20 px-4 sm:px-16 lg:px-8 overflow-hidden">
+
+        {/* mouse animation */}
+        <div className="absolute inset-0 opacity-30" style={{
+            background: `radial-gradient(300px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(59, 130, 246, 0.15), transparent 40%)`
+        }}/>
+
+        {/* two circles with the pulse animation */}
+        <div className="absolute top-20 left-4 sm:left-10 x-48 sm:w-72 h-48 sm:h-72 bg-blue-500/10 rounded-ful blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-4 sm:right-10 w-64 sm:w-96 h-64 sm:h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+
+        {/* actual content skeleton */}
+        <div className="relative order-2 w-full">
+
+            {/* code editor box */}
+            <div className="relative bg-white/5 backdrop-blur-xl rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-2xl border border-white/10">
+                <div className="bg-linear-to-br from-gray-900/20 to-gray-800 backdrop-blur-sm rounded-lg overflow-hidden h-70 sm:w-87.5 lg:h-112.5 border border-white/5">
+
+                    {/* code editor header section*/}
+                    <div className="flex items-center justify-between px-3 sm:px-4 py-2 sm:py-3 bg-white/5 backdrop-blur-sm border-b border-white/10">
+
+                        {/* dots & name */}
+                        <div className="flex items-center gap-5">
+                            {/* the minimise, close & open circles */}
+                            <div className="flex gap-1 sm:gap-2">
+                                <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-500"/>
+                                <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-yellow-500"/>
+                                <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-green-500"/>
+                            </div>
+
+                            {/* Website name */}
+                            <span className="text-xs sm:text-sm text-gray-300">ParadoxTECH</span>
+                        </div>
+
+                        {/* downward arrow from lucide */}
+                        <ChevronDown className="h-4 w-4 sm:h-6 sm:w-6 text-gray-400"/>
+
+                    </div>
+
+                    {/* box of code */}
+                    <div className="p-3 sm:p-4 relative h-full">
+
+                        {/* file tabs */}
+                        <div className="flex space-x-1 sm:space-x-2 mb-3 sm:mb-4 overflow-hidden">
+                            <button onClick={() => setActiveTab("App.tsx")} className={`px-3 py-2 backdrop-blur-sm text-xs sm:text-sm rounded-t-lg border ${activeTab === "App.tsx" ? "bg-blue-500/30 text-white border-blue-400/20" : "bg-white/5 text-gray-300 border-white/10 hover:bg-gray-600/2"}  transition-all duration-200 whitespace-nowrap `}>App.tsx</button>
+                            <button onClick={() => setActiveTab("Main.tsx")} className={`px-3 py-2 backdrop-blur-sm text-xs sm:text-sm rounded-t-lg border ${activeTab === "Main.tsx" ? "bg-blue-500/30 text-white border-blue-400/20" : "bg-white/5 text-gray-300 border-white/10 hover:bg-gray-600/2"}  transition-all duration-200 whitespace-nowrap `}>Main.tsx</button>
+                            <button onClick={() => setActiveTab("index.css")} className={`px-3 py-2 backdrop-blur-sm text-xs sm:text-sm rounded-t-lg border ${activeTab === "index.css" ? "bg-blue-500/30 text-white border-blue-400/20" : "bg-white/5 text-gray-300 border-white/10 hover:bg-gray-600/2"}  transition-all duration-200 whitespace-nowrap `}>index.css</button>
+                        </div>
+   
+                        {/* code content */}
+                        <div className="relative overflow-hidden grow text-xs">
+                        <SyntaxHighlighter language="typescript" style={nightOwl} customStyle={{margin: 0, borderRadius: "8px", fontSize: "11px", lineHeight: "1.4", height: "100%", border: "1px solid #3c3c3c"}}>
+                                {codeExamples[activeTab]}
+                            </SyntaxHighlighter>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
   )
 }
 
