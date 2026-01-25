@@ -110,7 +110,7 @@ function Hero() {
         
                                 {/* code content */}
                                 <div className="relative overflow-hidden grow text-xs">
-                                <SyntaxHighlighter language="typescript" style={nightOwl} customStyle={{margin: 0, borderRadius: "8px", fontSize: "11px", lineHeight: "1.4", height: "100%", border: "1px solid #3c3c3c"}}>
+                                    <SyntaxHighlighter language="typescript" style={nightOwl} customStyle={{margin: 0, borderRadius: "8px", fontSize: "11px", lineHeight: "1.4", height: "100%", border: "1px solid #3c3c3c"}}>
                                         {codeExamples[activeTab]}
                                     </SyntaxHighlighter>
                                 </div>

@@ -16,7 +16,7 @@ function Navbar() {
                 {/* Logo */}
                 <div className='flex items-center space-x-1 group cursor-pointer'>
                     <div>
-                        <img src={logo} alt="Paradox Logo" className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl"/>
+                        <img src={logo} alt="Paradox Logo" className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl sm:rounded-3xl"/>
                     </div>
                     <span className='text-lg sm:text-xl md:text-2xl'>
                         <span className='text-white'>Paradox</span>
