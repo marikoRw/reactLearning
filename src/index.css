@@ -10,16 +10,45 @@
         animation-name: slideInFromTop;
     }
 
+    .slide-in-form-bottom {
+        animation-name: slideInFromBottom;
+    }
+
     .duration-300 {
         animation-duration: 300ms;
+    }
+
+    .duration-700 {
+        animation-duration: 700ms;
+    }
+
+    .delay-100 {
+        animation-delay: 100ms;
+    }
+
+    .delay-200 {
+        animation-delay: 200ms;
+    }
+}
+
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
 @keyframes slideInFromTop {
     from {
         opacity: 0;
+        transform: translateY(-1rem);
     }
     to {
         opacity: 1;
+        transform: translateY(0);
     }
 }

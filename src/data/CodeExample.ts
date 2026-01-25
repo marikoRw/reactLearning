@@ -61,3 +61,46 @@ export const codeExamples: Record<string, string> = {
     }
     `
 }
+
+
+interface floatingCards {
+    bgColor: string;
+    iconcolor: string;
+    textColor: string;
+    contentColor: string;
+    icon: string;
+    title: string;
+    content: string;
+}
+
+export const floatingCards: Record<string, floatingCards> = {
+    "App.tsx" : {
+        bgColor: "bg-blue-500/20",
+        iconcolor: "text-blue-400",
+        textColor: "text-blue-200",
+        contentColor: "text-blue-300",
+        icon: "AI",
+        title: "Smart Completion",
+        content: "AI-powered code suggestions in real-time",
+    },
+
+    "Main.tsx" : {
+        bgColor: "bg-purple-500/20",
+        iconcolor: "text-purple-400",
+        textColor: "text-purple-200",
+        contentColor: "text-purple-300",
+        icon: "⚡",
+        title: "Auto Animation",
+        content: "qwerty uio sdfg hjk cvbn xrctvvffxf",
+    },
+
+    "index.css" : {
+        bgColor: "bg-emerald-500/20",
+        iconcolor: "text-emerald-400",
+        textColor: "text-emerald-200",
+        contentColor: "text-emerald-300",
+        icon: "💀",
+        title: "Killer Styles",
+        content: "what what ahwtanfowen fwoenwf",
+    },
+};
