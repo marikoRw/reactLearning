@@ -40,6 +40,11 @@ function Navbar() {
                         href='#testimonials' 
                         className='text-gray-300 hover:text-white text-sm lg:text-base'
                     >Testimonials</a>
+
+                    <a 
+                        href='#footer' 
+                        className='text-gray-300 hover:text-white text-sm lg:text-base'
+                    >Footer</a>
                 </div>
 
                 {/* X & humburger menu */}
@@ -77,6 +82,12 @@ function Navbar() {
                     onClick={() => setMobileMenuIsOpen(false)}
                     className='block text-gray-300 hover:text-white text-sm lg:text-base'
                 >Testimonials</a>
+
+                <a 
+                    href='#footer' 
+                    onClick={() => setMobileMenuIsOpen(false)}
+                    className='block text-gray-300 hover:text-white text-sm lg:text-base'
+                >Footer</a>
             </div>
 
         </div>}
