@@ -6,4 +6,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: "/reactLearning/",
+  build: {
+    chunkSizeWarningLimit: 1000, // Raises limit to 1MB
+  },
 })
